@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="container">
     <!-- Navbar start -->
     <nav class="navbar navbar-expand-sm bg-black">
 
@@ -38,7 +39,7 @@
         <a class="nav-link text-white" href="#">dịch vụ</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">tin tức</a>
+        <a class="nav-link text-white" href="blog.php">tin tức</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-white" href="#">giỏ hàng</a>
@@ -52,33 +53,60 @@
     </ul>
   </div>
 
-  </nav>
-    <!-- Modal Search End -->
-<?php
- $id=$_GET['sid'];
-require_once 'ketnoi.php';
-$chitiettintuc_sql="SELECT * FROM tintuc WHERE id=$id";
-$result=mysqli_query($conn,$chitiettintuc_sql);
-$row = mysqli_fetch_assoc($result);
-?>
-<body>
-    <div class="container ">
-        <div class="row">
-            <div class="col-6">
-                <img class="" width="400px" src="./img/blog/<?php echo $row['hinhanh']; ?> " alt=""></div>
-            <div class="col-6">
-            <h1><?php echo $row['tenbai']; ?> </h1>
-            <h4><?php echo $row['tacgia']; ?> </h4>
-            
-            <button class="btn btn-secondary"> trở về trang chủ</button>
-            </div>
-        <div class="row">
-        <h4><?php echo $row['noidung']; ?> </h4>
+</nav>
+ 
+  <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+
+    <!-- Fruits Shop Start-->
+    <div class="container-fluid fruite py-5">
+      <div class="container py-5">
+        <h1>Các sản phẩm của chúng tôi</h1>
+        <div class="tab-class text-center">
+          <div class="tab-content">
+            <div id="tab-1" class="tab-pane fade show p-0 active">
+              <div class="row g-4">
+                <div class="col-lg-12">
+                  <div class="row g-4">
+                  <?php
+      require_once 'ketnoi.php';
+      $lietkesanpham_sql = " SELECT * FROM sanpham order by id";
+      $result = mysqli_query($conn, $lietkesanpham_sql);
+      while ($r = mysqli_fetch_assoc($result)){
+      ?>
+      <div class="col-md6 col-lg-4 col-xl-3">
+                      <div class="card">
+                        <a href="chitietsanpham.php?sid=<?php echo $r['id'];?>">
+                        <td><img
+                          class="card-img-top"
+                          src="./img/sanpham/<?php echo $r['hinhanh']; ?>"
+                          alt="Card image"
+                        /></td>
+                        <div class="card-body">
+                          <h4 class="card-title">
+                          <td><?php echo $r['tensanpham'];?></td>
+                          </h4>
+                          <p class="card-text"><?php echo $r['gia'];?></p>
+                          <a href="" class="btn btn-primary"
+                            >Thêm vào giỏ hàng</a
+                          >
+                        </div>
+                        </a>
+                      </div>
+                    </div>
+                    <?php
+    }
+    ?>
+    </div>
         </div>
-        </div>      
-</div> 
-</body>
-</html>
+    </div>
+    </div>
+        </div>
+
+    
+    <!-- Fruits Shop End-->
+
+
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
       <div class="container py-5">

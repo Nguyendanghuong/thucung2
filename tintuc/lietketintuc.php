@@ -37,7 +37,7 @@
         <td><?php echo $r['tenbai'];?></td>
         <td><?php echo $r['noidung'];?></td>
         <td><?php echo $r['tacgia'];?></td>
-        <td><img src="../img/sanpham/<?php echo $r['hinhanh']; ?>  " width="40px" height="40px" alt ="anh"/></td>
+        <td><img src="../img/blog/<?php echo $r['hinhanh']; ?>  " width="40px" height="40px" alt ="anh"/></td>
         <td><a href="suatintuc.php?sid=<?php echo $r['id'];?>" class="btn btn-info">sửa</a>
          <a onclick="return confirm('bạn có muốn xóa tin tức này không');" href="xoatintuc.php?sid=<?php echo $r['id'];?>" class="btn btn-danger">xoá</a></td>
       </tr>
